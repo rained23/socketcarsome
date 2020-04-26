@@ -1,0 +1,56 @@
+version: '3'
+services:
+  app:
+    image: node:lts
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    ports:
+      - '3000:3000'
+    environment:
+      RDS_HOSTNAME: postgres
+    command: bash -c 'yarn build && yarn start:prod'
+  app2:
+    image: node:lts
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    ports:
+      - '4000:3000'
+    environment:
+      RDS_HOSTNAME: postgres
+    command: bash -c 'yarn build && yarn start:prod'
+  postgres:
+    image: postgres:11.2-alpine
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgres/data
+    environment:
+      POSTGRES_USER: carsome
+      POSTGRES_PASSWORD: carsome
+      POSTGRES_DB: carsome
+    logging:
+      driver: none
+  redis:
+    image: 'bitnami/redis:latest'
+    ports:
+      - '6379:6379'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - rsdata:/bitnami/redis/data
+    logging:
+      driver: none
+volumes:
+  pgdata:
+  rsdata:
