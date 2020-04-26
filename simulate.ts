@@ -135,7 +135,7 @@ reset.on('book:init', remoteBook => {
     executionEnd[1] / 1000000,
   );
   console.info(
-    'Overall processed bids time (hr): %ds %dms',
+    'Overall processed bids time: %ds %dms',
     processedEnd[0],
     processedEnd[1] / 1000000,
   );
