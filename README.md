@@ -25,9 +25,11 @@ The simulation contains 2 mode, `sync` and `real`.
 
 ```bash
 # The `sync` mode follow the challenge requirement.
+# purpose: benchmark
 $ yarn simulate
 
 # The `real` mode will cast the bids asynchronously mimicking real-world situation.
+# purpose: test the socket logic reliability
 $ yarn simulate:real
 
 ```
