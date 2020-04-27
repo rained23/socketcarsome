@@ -1,8 +1,10 @@
 version: '3'
 services:
   app:
-    build: .
+    build: ./
     image: socketcarsome
+    volumes:
+      - ./:/app
     depends_on:
       - postgres
     links:
@@ -13,7 +15,10 @@ services:
       RDS_HOSTNAME: postgres
   app2:
     image: socketcarsome
+    volumes:
+      - ./:/app
     depends_on:
+      - app
       - postgres
     links:
       - postgres
