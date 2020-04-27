@@ -9,5 +9,5 @@ RUN cd client && yarn && yarn build
 RUN adduser -D myuser
 USER myuser
 
-CMD ["yarn", "start"]
+CMD ["yarn", "start:prod"]
 
