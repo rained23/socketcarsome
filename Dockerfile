@@ -4,7 +4,7 @@ ADD ./ /app
 WORKDIR /app
 
 RUN yarn && yarn build
-RUN cd client && yarn build
+RUN cd client && yarn && yarn build
 
 RUN adduser -D myuser
 USER myuser
