@@ -1,10 +1,8 @@
 version: '3'
 services:
   app:
-    image: node:lts
-    working_dir: /app
-    volumes:
-      - ./:/app
+    build: .
+    image: socketcarsome
     depends_on:
       - postgres
     links:
@@ -13,12 +11,8 @@ services:
       - '3000:3000'
     environment:
       RDS_HOSTNAME: postgres
-    command: bash -c 'yarn build && yarn start:prod'
   app2:
-    image: node:lts
-    working_dir: /app
-    volumes:
-      - ./:/app
+    image: socketcarsome
     depends_on:
       - postgres
     links:
@@ -27,7 +21,6 @@ services:
       - '4000:3000'
     environment:
       RDS_HOSTNAME: postgres
-    command: bash -c 'yarn build && yarn start:prod'
   postgres:
     image: postgres:11.2-alpine
     restart: always

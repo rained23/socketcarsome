@@ -8,17 +8,6 @@ A simple frontend to showcase the socket service built using Vue.js.
 
 Container ready through Docker for simulating multiple instances of socket capabilities.
 
-## Install dependencies
-
-```bash
-# socket service dependencies
-$ yarn
-
-# frontend dependencies
-$ yarn
-$ yarn build
-```
-
 ## Running the app
 
 The socket service is configured with 2 instances that listening on port `3000` and `4000`.
