@@ -24,6 +24,9 @@ Navigate to `http://localhost:3000` or `http://localhost:4000` to access the fro
 The simulation contains 2 mode, `sync` and `real`.
 
 ```bash
+# install the dependency
+$ yarn install
+
 # The `sync` mode follow the challenge requirement.
 # purpose: benchmark
 $ yarn simulate
